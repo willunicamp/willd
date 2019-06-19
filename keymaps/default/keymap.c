@@ -9,6 +9,7 @@ extern keymap_config_t keymap_config;
 #define _DT 3
 
 bool key_triggered = false;
+bool lower_on = false;
 
 enum layer_keycodes {
     QWERTY = SAFE_RANGE, LOWER, RAISE
@@ -50,8 +51,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         //}
       if(record->event.pressed){
         layer_on(_LW);
+        lower_on = true;
       }else{
         layer_off(_LW);
+        lower_on = false;
       }
       return false;
       break;
@@ -69,9 +72,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
 void encoder_update_user(uint8_t index, bool clockwise) {
+    if(!lower_on){
         if (clockwise) {
             tap_code(KC_VOLD);
         } else {
             tap_code(KC_VOLU);
         }
+    }else{
+        if (clockwise) {
+            tap_code(KC_PGDN);
+        } else {
+            tap_code(KC_PGUP);
+        }
+    }
 };
