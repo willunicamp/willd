@@ -1,31 +1,29 @@
-# WIllD
+# Daisy
 
-A 40% keyboard kit based on Daisy (https://github.com/qmk/qmk_firmware/tree/master/keyboards/daisy)
+A 40% keyboard kit sold by KPRepublic.
+
+Keyboard Maintainer: westfoxtrot (https://github.com/westfoxtrot)  
+Hardware Supported: Daisy PCB Rev.1, Daisy PCB Rev.2  
+Hardware Availability: http://tinyurl.com/yc26lq22
 
 Make example for this keyboard (after setting up your build environment):
 
-    make willd:default
+    make daisy:default
 
 See [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) then the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information.
 
 
-# Keymap
+# Other Keymaps
 
-The "default" keymap included is the same as the Planck keyboard. Keys not present are mapped as KC_NO, while unused keys are KC_TLNS.
+The "default" keymap included is the layout I personally use on the Daisy and the one I have found the most comfortable.
 
-Keyboard pics can be found here: https://imgur.com/a/L6Hk7f9
+A printable picture showing this layout is available here: https://imgur.com/9mSF0yf
 
 
 ```
-$ make willd:[default|<name>]
+$ make daisy:[default|<name>]
 ```
 
-# Features
+# Bootloader
 
-I personally do not like to use the TAPPING_TERM timer to ignore a layer activation in a double function key, so I prgrammed the layers to be activated if the key is held and any other key is tapped. If the layer key is released without tappping any other key, the primary keycode is released. Right space key works like this. The QMK RETRO TAPPING feature do not activate the layer if the combination is made before the TAPPING_TERM time runs out, while my implementation activates the layer immediately.
-
-I also wanted to use a key to toggle a layer, but I wanted it act different in both layers. So I reprogrammed the key to activate a layer when tap, and, in this new layer, the toggle only returns if the key is held more than a defined time.
-
-The keyboard has an encoder, that I use to increase and decrease sound.
-
-The keyboard also have indicator leds, that I use to identify in which layer the keyboard is.
+I personally had issues with the bootloader on my Daisy PCB and was unable to flash a firmware to the board after the first time. I replaced the bootloader with the one available in the repository at ../../util/bootloader_atmega32u4_1_0_0.hex
