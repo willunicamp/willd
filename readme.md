@@ -13,7 +13,7 @@ See [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools)
 
 The "default" keymap included is the same as the Planck keyboard. Keys not present are mapped as KC_NO, while unused keys are KC_TLNS.
 
-A printable picture showing this layout is available here: https://imgur.com/9mSF0yf
+Keyboard pics can be found here: https://imgur.com/a/L6Hk7f9
 
 
 ```
