@@ -16,14 +16,18 @@ bool lower_on = false;
 //TAP DANCE DECLARATIONS
 enum {
   TD_P_EQL = 0,
-  TD_L_DQUO = 1
+  TD_L_DQUO = 1,
+  TD_COMMA = 2,
+  TD_DOT = 3
 };
 
 //Tap Dance Definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
   //Tap once for Esc, twice for Caps Lock
   [TD_P_EQL]  = ACTION_TAP_DANCE_DOUBLE(KC_P, KC_EQL),
-  [TD_L_DQUO]  = ACTION_TAP_DANCE_DOUBLE(KC_L, KC_DQUO)
+  [TD_L_DQUO]  = ACTION_TAP_DANCE_DOUBLE(KC_L, KC_DQUO),
+  [TD_COMMA]  = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_SCLN),
+  [TD_DOT]  = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_COLN)
 // Other declarations would go here, separated by commas, if you have them
 };
 
@@ -37,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BL] = LAYOUT(
 KC_GESC, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, TD(TD_P_EQL), KC_BSPC,
 KC_TAB, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, TD(TD_L_DQUO), KC_NO, KC_ENT,
-KC_LSFT, TG(_DT), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
+KC_LSFT, TG(_DT), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, TD(TD_COMMA), TD(TD_DOT), KC_SLSH,
 KC_LCPO, KC_LGUI, KC_LALT, KC_NO, KC_SPC, KC_NO, KC_NO, LOWER, KC_NO, KC_SCLN, RAISE, KC_RAPC
 ),
 	[_LW] = LAYOUT(
