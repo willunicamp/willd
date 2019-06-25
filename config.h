@@ -37,8 +37,10 @@
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
 
-#define BACKLIGHT_PIN D4
+
+#define BACKLIGHT_PIN B6
 #define BACKLIGHT_LEVELS 6
+
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
@@ -141,12 +143,14 @@
 //#define NO_ACTION_FUNCTION
 
 // ws2812 options
-#define RGB_DI_PIN B6 // pin the DI on the ws2812 is hooked-up to
-#define RGBLIGHT_ANIMATIONS // run RGB animations
-#define RGBLED_NUM 5 // number of LEDs
-#define RGBLIGHT_HUE_STEP 12 // units to step when in/decreasing hue
-#define RGBLIGHT_SAT_STEP 25 // units to step when in/decresing saturation
-#define RGBLIGHT_VAL_STEP 12 // units to step when in/decreasing value (brightness)
+//#define RGB_DI_PIN B6 // pin the DI on the ws2812 is hooked-up to
+//#define RGBLIGHT_ANIMATIONS
+//#define RGBLED_NUM 16
+//#define RGBLIGHT_LIMIT_VAL 120
+//#define RGBLIGHT_HUE_STEP 10
+//#define RGBLIGHT_SAT_STEP 17
+//#define RGBLIGHT_VAL_STEP 17
+//#define RGBLIGHT_SLEEP
 
 /*
  * MIDI options
@@ -171,4 +175,8 @@
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 1
 #define TAPPING_TERM 200
+#define RETRO_TAPPING
+#define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT
+
 #endif
